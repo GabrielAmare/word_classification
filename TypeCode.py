@@ -6,7 +6,7 @@ class TypeCode(CodeTemplate):
 
     g_subclasses = {
         "NOM": ("PRO", "COM"),
-        "ART": ("DEF", "IND", "PAR", "DEM"),
+        "ART": ("DEF", "IND", "PAR", "DEM", "DEC"), # DEC : DEfini Contracté
         "ADJ": ("QUA", "REL", "NUM-CAR", "NUM-ORD", "IND"),
         "PRO": ("PER", "ADV", "REL", "INT", "POS", "DEM", "IND", "NUM", "IMP", "QUA", "ADJ", "SUB", "REF"),
         "VER": ("INF", "CON"),
