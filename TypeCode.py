@@ -8,7 +8,7 @@ class TypeCode(CodeTemplate):
         "NOM": ("PRO", "COM"),
         "ART": ("DEF", "IND", "PAR", "DEM"),
         "ADJ": ("QUA", "REL", "NUM-CAR", "NUM-ORD", "IND"),
-        "PRO": ("PER", "ADV", "REL", "INT", "POS", "DEM", "IND", "NUM", "IMP", "QUA", "ADJ", "SUB"),
+        "PRO": ("PER", "ADV", "REL", "INT", "POS", "DEM", "IND", "NUM", "IMP", "QUA", "ADJ", "SUB", "REF"),
         "VER": ("INF", "CON"),
         "ADV": ("MAN", "LIE", "TEM", "ASP", "LOG", "EXP", "ANA"),
         "PRE": (),
