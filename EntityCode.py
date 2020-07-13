@@ -53,7 +53,9 @@ class EntityCode(CodeTemplate):
             >>> EntityCode('DM').contains(EntityCode('2PM')) # True
             >>> EntityCode('1SM').contains(EntityCode('1SF')) # False
         """
-        assert isinstance(other, EntityCode)
+        if not isinstance(other, EntityCode) and isinstance(other, str):
+            other = EntityCode(other)
+        assert isinstance(other, EntityCode), other.__class__.__name__
         c1 = other.person in {'1': {'1'}, '2': {'2'}, '3': {'3'}, 'D': {'D', '1', '2'}, '': {'1', '2', '3', 'D', ''}}[
             self.person]
         c2 = other.number in {'S': {'S'}, 'P': {'P'}, '': {'S', 'P', ''}}[self.number]
