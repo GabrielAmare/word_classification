@@ -27,7 +27,7 @@ class WordCode(CodeTemplate):
             elif typecode.startswith('PRO'):
                 for entitycode in EntityCode.all():
                     yield WordCode(f"{typecode}-{entitycode}")
-            elif typecode == 'NOM-COM':
+            elif typecode.startswith('NOM'):
                 for entitycode in EntityCode.all():
                     if EntityCode('3').contains(entitycode):
                         yield WordCode(f"{typecode}-{entitycode}")
@@ -55,7 +55,9 @@ class WordCode(CodeTemplate):
             entitycode, entitycode2 = map(EntityCode, content.split('-', 1))
         elif typecode.startswith('PRO'):
             entitycode = EntityCode(content)
-        elif typecode.startswith('NOM-COM'):
+        elif typecode.startswith('NOM'):
+            entitycode = EntityCode(content)
+        elif typecode.startswith('ADJ-QUA'):
             entitycode = EntityCode(content)
         instance = super().__new__(cls, typecode + ('-' + content if content else ''))
         instance.typecode, instance.verbcode, instance.conjcode, instance.entitycode, instance.entitycode2 = typecode, verbcode, conjcode, entitycode, entitycode2
