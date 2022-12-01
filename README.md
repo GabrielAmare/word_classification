@@ -37,6 +37,15 @@ Ideally, each atomic meaning a word can have should have a representation in thi
 - `VER` : [Verbe](/semantic/verbs.py#L16)
     - `VER-INF` : [Verbe infinitif](/semantic/verbs.py#L24)
     - `VER-CON` : [Verbe conjugué](/semantic/verbs.py#L73)
+- `ADV` : [Adverbe](/semantic/adverbs.py#L20)
+    - `ADV-MAN` : [Adverbe de manière](/semantic/adverbs.py#L25)
+    - `ADV-LIE` : [Adverbe de lieu](/semantic/adverbs.py#L31)
+    - `ADV-TEM` : [Adverbe de temps](/semantic/adverbs.py#L37)
+    - `ADV-ASP` : [Adverbe d'aspect](/semantic/adverbs.py#L43)
+    - `ADV-LOG` : [Adverbe logique](/semantic/adverbs.py#L49)
+    - `ADV-EXP` : [Adverbe explétif](/semantic/adverbs.py#L55)
+    - `ADV-ANA` : [Adverbe anaphorique](/semantic/adverbs.py#L61)
+    - `ADV-NEG` : [Adverbe de négation](/semantic/adverbs.py#L67)
 
 ## Times
 

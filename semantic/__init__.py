@@ -1,5 +1,6 @@
 from .abstract import *
 from .adjectives import *
+from .adverbs import *
 from .articles import *
 from .entities import *
 from .nouns import *
