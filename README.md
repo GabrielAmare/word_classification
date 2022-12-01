@@ -46,6 +46,7 @@ Ideally, each atomic meaning a word can have should have a representation in thi
     - `ADV-EXP` : [Adverbe explétif](/semantic/adverbs.py#L55)
     - `ADV-ANA` : [Adverbe anaphorique](/semantic/adverbs.py#L61)
     - `ADV-NEG` : [Adverbe de négation](/semantic/adverbs.py#L67)
+- `PRE` : [Préposition](/semantic/prepositions.py#L11)
 
 ## Times
 

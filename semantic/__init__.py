@@ -4,6 +4,7 @@ from .adverbs import *
 from .articles import *
 from .entities import *
 from .nouns import *
+from .prepositions import *
 from .pronouns import *
 from .times import *
 from .verbs import *
