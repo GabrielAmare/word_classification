@@ -50,6 +50,10 @@ Ideally, each atomic meaning a word can have should have a representation in thi
 - `CON` : [Conjonction](/semantic/conjunctions.py#L14)
     - `CON-COO` : [Conjonction de coordination](/semantic/conjunctions.py#L19)
     - `CON-SUB` : [Conjonction de subordination](/semantic/conjunctions.py#L24)
+- `INT` : [Interjection](/semantic/interjections.py#L15)
+    - `INT-STR` : [Interjection stricto-sensu](/semantic/interjections.py#L20)
+    - `INT-ONO` : [Interjection onomatopée](/semantic/interjections.py#L25)
+    - `INT-EMP` : [Interjection empruntée](/semantic/interjections.py#L30)
 
 ## Times
 
