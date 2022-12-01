@@ -34,3 +34,5 @@ Ideally, each atomic meaning a word can have should have a representation in thi
     - `PRO-IND` : [Pronom indéfini](/semantic/pronouns.py#L131)
     - `PRO-IMP` : [Pronom impersonnel](/semantic/pronouns.py#L140)
     - `PRO-REF` : [Pronom réfléchis](/semantic/pronouns.py#L150)
+- `VER` : [Verbe](/semantic/verbs.py#L13)
+    - `VER-INF` : [Verbe infinitif](/semantic/verbs.py#L21)
