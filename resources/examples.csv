@@ -84,3 +84,74 @@ ADJ-POS-SF-3S-T,sienne
 ADJ-POS-PF-1P-T,miennes
 ADJ-POS-PF-2P-T,tiennes
 ADJ-POS-PF-3P-T,siennes
+PRO-PER-1S*,je
+PRO-PER-2S*,tu
+PRO-PER-3SM,il
+PRO-PER-3SF,elle
+PRO-PER-3S*,on
+PRO-PER-1P*,nous
+PRO-PER-2P*,vous
+PRO-PER-3PM,ils
+PRO-PER-3PF,elles
+PRO-ADV,y
+PRO-ADV,en
+PRO-REL-INV,qui
+PRO-REL-INV,que
+PRO-REL-INV,quoi
+PRO-REL-INV,dont
+PRO-REL-INV,où
+PRO-REL-VAR-SM,lequel
+PRO-REL-VAR-SF,laquelle
+PRO-REL-VAR-PM,lequels
+PRO-REL-VAR-PF,lesquelles
+PRO-INT,qui
+PRO-INT,que
+PRO-INT,quoi
+PRO-POS-SM-1S,le mien
+PRO-POS-SM-2S,le tien
+PRO-POS-SM-3S,le sien
+PRO-POS-S*-1P,le nôtre
+PRO-POS-S*-2P,le vôtre
+PRO-POS-S*-3P,le leur
+PRO-POS-PM-1S,les miens
+PRO-POS-PM-2S,les tiens
+PRO-POS-PM-3S,les siens
+PRO-POS-P*-1P,les nôtres
+PRO-POS-P*-2P,les vôtres
+PRO-POS-P*-3P,les leurs
+PRO-POS-SF-1S,la mienne
+PRO-POS-SF-2S,la tienne
+PRO-POS-SF-3S,la sienne
+PRO-POS-PF-1P,les miennes
+PRO-POS-PF-2P,les tiennes
+PRO-POS-PF-3P,les siennes
+PRO-DEM-SM,celui
+PRO-DEM-SF,celle
+PRO-DEM-PM,ceux
+PRO-DEM-PF,celles
+PRO-DEM-**,ceci
+PRO-IND-SM,aucun
+PRO-IND-SF,aucune
+PRO-IND-PM,certains
+PRO-IND-PF,certaines
+PRO-IND-S*,autre
+PRO-IND-P*,autres
+PRO-IND-**,autrui
+PRO-IND-P*,plusieurs
+PRO-IND-SM,quelqu'un
+PRO-IND-SF,quelqu'une
+PRO-IND-PM,quelques-uns
+PRO-IND-PF,quelques-unes
+PRO-IMP,il
+PRO-REF-1S,me
+PRO-REF-1S,m'
+PRO-REF-1S,moi
+PRO-REF-2S,te
+PRO-REF-2S,t'
+PRO-REF-2S,toi
+PRO-REF-1P,nous
+PRO-REF-2P,vous
+PRO-REF-3*,se
+PRO-REF-3*,s'
+PRO-REF-3*,soi
+VER-INF-1

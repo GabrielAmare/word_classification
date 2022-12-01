@@ -26,6 +26,15 @@ _PATTERNS = {
     AdjectivePossessive: re.compile(r"^ADJ-POS-(?P<number>[SP*])(?P<gender>[MF*])"
                                     r"-(?P<owner_person>[123])(?P<owner_number>[SP*])"
                                     r"-(?P<tonic>[NT])$"),
+    PronounPersonal: re.compile(r"^PRO-PER-(?P<person>[123])(?P<number>[SP*])(?P<gender>[MF*])$"),
+    PronounRelativeInvariable: re.compile(r"^PRO-REL-INV$"),
+    PronounRelativeVariable: re.compile(r"^PRO-REL-VAR-(?P<number>[SP*])(?P<gender>[MF*])$"),
+    PronounPossessive: re.compile(r"^PRO-POS-(?P<number>[SP*])(?P<gender>[MF*])"
+                                  r"-(?P<owner_person>[123])(?P<owner_number>[SP*])$"),
+    PronounDemonstrative: re.compile(r"^PRO-DEM-(?P<number>[SP*])(?P<gender>[MF*])$"),
+    PronounIndefinite: re.compile(r"^PRO-IND-(?P<number>[SP*])(?P<gender>[MF*])$"),
+    PronounImpersonal: re.compile(r"^PRO-IMP-(?P<person>[123])(?P<number>[SP*])(?P<gender>[MF*])$"),
+    PronounReflexive: re.compile(r"^PRO-REF-(?P<person>[123])(?P<number>[SP*])$"),
 }
 
 
@@ -84,5 +93,43 @@ def meaning(code: str) -> Meaning:
             owner_number=Number(m.group('owner_number')),
             tonic=m.group('tonic') == 'T',
         )
+    elif code.startswith("PRO-PER-"):
+        cls = PronounPersonal
+        m = _PATTERNS[cls].match(code)
+        return cls(person=Person(m.group('person')), number=Number(m.group('number')), gender=Gender(m.group('gender')))
+    elif code == "PRO-ADV":
+        return PronounAdverbial()
+    elif code == "PRO-REL-INV":
+        return PronounRelativeInvariable()
+    elif code.startswith("PRO-REL-VAR-"):
+        m = _PATTERNS[PronounRelativeVariable].match(code)
+        return PronounRelativeVariable(
+            number=Number(m.group('number')),
+            gender=Gender(m.group('gender')),
+        )
+    elif code == "PRO-INT":
+        return PronounInterrogative()
+    elif code.startswith("PRO-POS-"):
+        m = _PATTERNS[PronounPossessive].match(code)
+        return PronounPossessive(
+            number=Number(m.group('number')),
+            gender=Gender(m.group('gender')),
+            owner_person=Person(m.group('owner_person')),
+            owner_number=Number(m.group('owner_number')),
+        )
+    elif code.startswith("PRO-DEM-"):
+        cls = PronounDemonstrative
+        m = _PATTERNS[cls].match(code)
+        return cls(number=Number(m.group('number')), gender=Gender(m.group('gender')))
+    elif code.startswith("PRO-IND-"):
+        cls = PronounIndefinite
+        m = _PATTERNS[cls].match(code)
+        return cls(number=Number(m.group('number')), gender=Gender(m.group('gender')))
+    elif code == "PRO-IMP":
+        return PronounImpersonal()
+    elif code.startswith("PRO-REF-"):
+        cls = PronounReflexive
+        m = _PATTERNS[cls].match(code)
+        return cls(person=Person(m.group('person')), number=Number(m.group('number')))
     else:
         raise ValueError(code)

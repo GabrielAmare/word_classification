@@ -9,6 +9,8 @@ __all__ = [
     'PronounPersonal',
     'PronounAdverbial',
     'PronounRelative',
+    'PronounRelativeInvariable',
+    'PronounRelativeVariable',
     'PronounInterrogative',
     'PronounPossessive',
     'PronounDemonstrative',
@@ -25,19 +27,6 @@ class Pronoun(Meaning, abc.ABC):
 
 @dataclasses.dataclass(frozen=True)
 class PronounPersonal(Pronoun):
-    """
-        Example :
-        >>> from semantic.entities import Person, Number, Gender
-        >>> _ = PronounPersonal(person=Person.FIRST, number=Number.SINGULAR, gender=Gender.ANY)  # je
-        >>> _ = PronounPersonal(person=Person.SECOND, number=Number.SINGULAR, gender=Gender.ANY)  # tu
-        >>> _ = PronounPersonal(person=Person.THIRD, number=Number.SINGULAR, gender=Gender.MALE)  # il
-        >>> _ = PronounPersonal(person=Person.THIRD, number=Number.SINGULAR, gender=Gender.FEMALE)  # elle
-        >>> _ = PronounPersonal(person=Person.THIRD, number=Number.SINGULAR, gender=Gender.ANY)  # on
-        >>> _ = PronounPersonal(person=Person.FIRST, number=Number.PLURAL, gender=Gender.ANY)  # nous
-        >>> _ = PronounPersonal(person=Person.SECOND, number=Number.PLURAL, gender=Gender.ANY)  # vous
-        >>> _ = PronounPersonal(person=Person.THIRD, number=Number.PLURAL, gender=Gender.MALE)  # ils
-        >>> _ = PronounPersonal(person=Person.THIRD, number=Number.PLURAL, gender=Gender.FEMALE)  # elles
-    """
     person: Person
     number: Number
     gender: Gender
@@ -48,11 +37,6 @@ class PronounPersonal(Pronoun):
 
 @dataclasses.dataclass(frozen=True)
 class PronounAdverbial(Pronoun):
-    """
-        Example :
-        >>> _ = PronounAdverbial()  # y, en
-    """
-    
     def __str__(self) -> str:
         return "PRO-ADV"
 
@@ -64,57 +48,36 @@ class PronounRelative(Pronoun, abc.ABC):
 
 @dataclasses.dataclass(frozen=True)
 class PronounRelativeInvariable(PronounRelative):
-    """
-        Example :
-        >>> _ = PronounRelativeInvariable()  # qui, que, quoi, dont, où
-    """
-    
     def __str__(self) -> str:
-        return "PRO-REL"
+        return "PRO-REL-INV"
 
 
 @dataclasses.dataclass(frozen=True)
 class PronounRelativeVariable(PronounRelative):
-    """
-        Example :
-        >>> from semantic.entities import Person, Number, Gender
-        >>> _ = PronounRelativeVariable(person=Person.FIRST, number=Number.SINGULAR, gender=Gender.MALE)  # lequel
-        >>> _ = PronounRelativeVariable(person=Person.FIRST, number=Number.SINGULAR, gender=Gender.FEMALE)  # laquelle
-        >>> _ = PronounRelativeVariable(person=Person.FIRST, number=Number.PLURAL, gender=Gender.MALE)  # lequels
-        >>> _ = PronounRelativeVariable(person=Person.FIRST, number=Number.PLURAL, gender=Gender.FEMALE)  # lesquelles
-    """
-    person: Person
     number: Number
     gender: Gender
     
     def __str__(self) -> str:
-        return f"PRO-REL-{self.person.value}{self.number.value}{self.gender.value}"
+        return f"PRO-REL-VAR-{self.number.value}{self.gender.value}"
 
 
 @dataclasses.dataclass(frozen=True)
 class PronounInterrogative(Pronoun):
-    """
-        Example :
-        >>> _ = PronounInterrogative()  # qui, que, quoi
-    """
-    
     def __str__(self) -> str:
         return f"PRO-INT"
 
 
 @dataclasses.dataclass(frozen=True)
 class PronounPossessive(Pronoun):
+    number: Number
+    gender: Gender
     owner_person: Person
     owner_number: Number
-    owned_number: Number
-    owned_gender: Gender
     
     def __str__(self) -> str:
         return "-".join((
-            "PRO",
-            "POS",
-            f"{self.owner_person.value}{self.owned_number.value}",
-            f"{self.owned_number.value}{self.owned_gender}"
+            f"PRO-POS-{self.number.value}{self.gender.value}",
+            f"{self.owner_person.value}{self.owner_number.value}",
         ))
 
 
@@ -138,12 +101,8 @@ class PronounIndefinite(Pronoun):
 
 @dataclasses.dataclass(frozen=True)
 class PronounImpersonal(Pronoun):
-    person: Person
-    number: Number
-    gender: Gender
-    
     def __str__(self) -> str:
-        return f"PRO-IMP-{self.person.value}{self.number.value}{self.gender.value}"
+        return "PRO-IMP"
 
 
 @dataclasses.dataclass(frozen=True)
