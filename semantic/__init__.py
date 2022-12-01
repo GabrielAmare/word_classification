@@ -3,3 +3,4 @@ from .adjectives import *
 from .articles import *
 from .entities import *
 from .nouns import *
+from .pronouns import *
