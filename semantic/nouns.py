@@ -2,45 +2,28 @@ import abc
 import dataclasses
 
 from semantic.abstract import Meaning
-from semantic.entities import Entity
+from semantic.entities import Number, Gender
 
 __all__ = [
     'Noun',
-    'CommonNoun',
-    'ProperNoun',
+    'NounCommon',
+    'NounProper',
 ]
 
 
 @dataclasses.dataclass(frozen=True)
 class Noun(Meaning, abc.ABC):
-    pass
+    number: Number
+    gender: Gender
 
 
 @dataclasses.dataclass(frozen=True)
-class CommonNoun(Noun):
-    """
-        Exemple :
-        >>> from semantic.entities import Person, Number, Gender
-        >>> _ = CommonNoun(entity=Entity(person=Person.THIRD, number=Number.SINGULAR, gender=Gender.MALE))  # chat
-        >>> _ = CommonNoun(entity=Entity(person=Person.THIRD, number=Number.PLURAL, gender=Gender.MALE))  # chats
-        >>> _ = CommonNoun(entity=Entity(person=Person.THIRD, number=Number.SINGULAR, gender=Gender.FEMALE))  # chatte
-        >>> _ = CommonNoun(entity=Entity(person=Person.THIRD, number=Number.PLURAL, gender=Gender.FEMALE))  # chattes
-    """
-    entity: Entity
-    
+class NounCommon(Noun):
     def __str__(self) -> str:
-        return f"NOM-COM-{self.entity!s}"
+        return f"NOM-COM-{self.number.value}{self.gender.value}"
 
 
 @dataclasses.dataclass(frozen=True)
-class ProperNoun(Noun):
-    """
-        Exemple :
-        >>> from semantic.entities import Person, Number, Gender
-        >>> _ = ProperNoun(entity=Entity(person=Person.THIRD, number=Number.SINGULAR, gender=Gender.MALE))  # Michel
-        >>> _ = ProperNoun(entity=Entity(person=Person.THIRD, number=Number.SINGULAR, gender=Gender.FEMALE))  # Michelle
-    """
-    entity: Entity
-    
+class NounProper(Noun):
     def __str__(self) -> str:
-        return f"NOM-PRO-{self.entity!s}"
+        return f"NOM-PRO-{self.number.value}{self.gender.value}"

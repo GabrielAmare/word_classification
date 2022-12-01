@@ -4,6 +4,7 @@ from .adverbs import *
 from .articles import *
 from .conjunctions import *
 from .entities import *
+from .factories import *
 from .interjections import *
 from .nouns import *
 from .prepositions import *
