@@ -4,4 +4,5 @@ from .articles import *
 from .entities import *
 from .nouns import *
 from .pronouns import *
+from .times import *
 from .verbs import *
