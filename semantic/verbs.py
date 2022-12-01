@@ -2,10 +2,13 @@ import dataclasses
 import re
 
 from semantic.abstract import Meaning
+from semantic.entities import Entity
+from semantic.times import Time
 
 __all__ = [
     'Verb',
     'VerbInfinite',
+    'VerbConjugated',
 ]
 
 
@@ -57,3 +60,31 @@ class VerbInfinite(Verb):
             pronominal_direct=pronominal_direct,
             pronominal_indirect=pronominal_indirect,
         )
+
+
+_REGEX_VERB_CONJUGATED = re.compile(
+    r"^VER-CON"
+    r"-(?P<time>IND-(?:PR|PC|IM|PP|PS|PA|FS|FA)|SUB-(?:PR|PA|IM|PP)|CON-(?:PR|P1|P2)|(?:IMP|PAR|INF|GER)-(?:PR|PA))"
+    r"-(?P<entity>[123][SP*][MF*])$"
+)
+
+
+@dataclasses.dataclass(frozen=True)
+class VerbConjugated(Verb):
+    time: Time
+    entity: Entity
+    
+    @classmethod
+    def from_str(cls, expr: str) -> 'VerbConjugated':
+        match = _REGEX_VERB_CONJUGATED.match(expr)
+        
+        if not match:
+            raise ValueError(f"Invalid VerbConjugated code {expr!r}.")
+        
+        return VerbConjugated(
+            time=Time.from_str(match.group('time')),
+            entity=Entity.from_str(match.group('entity')),
+        )
+    
+    def __str__(self) -> str:
+        return f"VER-CON-{self.time!s}-{self.entity!s}"

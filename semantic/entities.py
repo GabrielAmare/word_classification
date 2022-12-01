@@ -1,5 +1,6 @@
 import dataclasses
 import enum
+import re
 
 __all__ = [
     'Person',
@@ -34,5 +35,20 @@ class Entity:
     number: Number
     gender: Gender
     
+    @classmethod
+    def from_str(cls, expr: str) -> 'Entity':
+        match = _REGEX_ENTITY.match(expr)
+        if not match:
+            raise ValueError(f"Invalid {cls.__name__} code {expr!r}")
+        
+        return Entity(
+            person=Person(match.group('person')),
+            number=Number(match.group('number')),
+            gender=Gender(match.group('gender')),
+        )
+    
     def __str__(self) -> str:
         return f"{self.person.value}{self.number.value}{self.gender.value}"
+
+
+_REGEX_ENTITY = re.compile(r"^(?P<person>[123])(?P<number>[SP*])(?P<gender>[MF*])$")
