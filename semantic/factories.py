@@ -4,6 +4,7 @@ from .abstract import *
 from .adjectives import *
 from .adverbs import *
 from .articles import *
+from .conjunctions import *
 from .entities import *
 from .nouns import *
 from .prepositions import *
@@ -143,6 +144,10 @@ def meaning(code: str) -> Meaning:
         return AdverbExpletive()
     elif code == "ADV-NEG":
         return AdverbNegation()
+    elif code == "CON-COO":
+        return ConjunctionCoordination()
+    elif code == "CON-SUB":
+        return ConjunctionSubordination()
     elif code.startswith("PRO-REF-"):
         cls = PronounReflexive
         m = _PATTERNS[cls].match(code)

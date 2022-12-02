@@ -17,9 +17,11 @@ class Conjunction(Meaning, abc.ABC):
 
 @dataclasses.dataclass(frozen=True)
 class ConjunctionCoordination(Conjunction):
-    pass
+    def __str__(self) -> str:
+        return "CON-COO"
 
 
 @dataclasses.dataclass(frozen=True)
 class ConjunctionSubordination(Conjunction):
-    pass
+    def __str__(self) -> str:
+        return "CON-SUB"
