@@ -46,7 +46,8 @@ Ideally, each atomic meaning a word can have should have a representation in thi
     - `ADV-EXP` : [Adverbe explétif](/semantic/adverbs.py#L55)
     - `ADV-ANA` : [Adverbe anaphorique](/semantic/adverbs.py#L61)
     - `ADV-NEG` : [Adverbe de négation](/semantic/adverbs.py#L67)
-- `PRE` : [Préposition](/semantic/prepositions.py#L11)
+- `PRE` : [Préposition](/semantic/prepositions.py#L11) (some links about
+  prepositions [www.francaisfacile.com](https://www.francaisfacile.com/exercices/exercice-francais-2/exercice-francais-34101.php))
 - `CON` : [Conjonction](/semantic/conjunctions.py#L14)
     - `CON-COO` : [Conjonction de coordination](/semantic/conjunctions.py#L19)
     - `CON-SUB` : [Conjonction de subordination](/semantic/conjunctions.py#L24)

@@ -9,4 +9,5 @@ __all__ = [
 
 @dataclasses.dataclass(frozen=True)
 class Preposition(Meaning):
-    pass
+    def __str__(self):
+        return "PRE"

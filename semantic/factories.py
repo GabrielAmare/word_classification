@@ -5,6 +5,7 @@ from .adjectives import *
 from .articles import *
 from .entities import *
 from .nouns import *
+from .prepositions import *
 from .pronouns import *
 
 __all__ = [
@@ -127,6 +128,8 @@ def meaning(code: str) -> Meaning:
         return cls(number=Number(m.group('number')), gender=Gender(m.group('gender')))
     elif code == "PRO-IMP":
         return PronounImpersonal()
+    elif code == "PRE":
+        return Preposition()
     elif code.startswith("PRO-REF-"):
         cls = PronounReflexive
         m = _PATTERNS[cls].match(code)
