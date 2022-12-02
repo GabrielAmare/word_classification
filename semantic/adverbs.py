@@ -8,10 +8,8 @@ __all__ = [
     'AdverbManner',
     'AdverbPlace',
     'AdverbTime',
-    'AdverbAspect',
     'AdverbLogical',
     'AdverbExpletive',
-    'AdverbAnaphoric',
     'AdverbNegation',
 ]
 
@@ -40,12 +38,6 @@ class AdverbTime(Adverb):
 
 
 @dataclasses.dataclass(frozen=True)
-class AdverbAspect(Adverb):
-    def __str__(self) -> str:
-        return "ADV-ASP"
-
-
-@dataclasses.dataclass(frozen=True)
 class AdverbLogical(Adverb):
     def __str__(self) -> str:
         return "ADV-LOG"
@@ -55,12 +47,6 @@ class AdverbLogical(Adverb):
 class AdverbExpletive(Adverb):
     def __str__(self) -> str:
         return "ADV-EXP"
-
-
-@dataclasses.dataclass(frozen=True)
-class AdverbAnaphoric(Adverb):
-    def __str__(self) -> str:
-        return "ADV-ANA"
 
 
 @dataclasses.dataclass(frozen=True)

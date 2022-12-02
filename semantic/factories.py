@@ -2,6 +2,7 @@ import re
 
 from .abstract import *
 from .adjectives import *
+from .adverbs import *
 from .articles import *
 from .entities import *
 from .nouns import *
@@ -130,6 +131,18 @@ def meaning(code: str) -> Meaning:
         return PronounImpersonal()
     elif code == "PRE":
         return Preposition()
+    elif code == "ADV-MAN":
+        return AdverbManner()
+    elif code == "ADV-LIE":
+        return AdverbPlace()
+    elif code == "ADV-TEM":
+        return AdverbTime()
+    elif code == "ADV-LOG":
+        return AdverbLogical()
+    elif code == "ADV-EXP":
+        return AdverbExpletive()
+    elif code == "ADV-NEG":
+        return AdverbNegation()
     elif code.startswith("PRO-REF-"):
         cls = PronounReflexive
         m = _PATTERNS[cls].match(code)
