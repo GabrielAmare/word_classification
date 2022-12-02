@@ -201,3 +201,17 @@ CON-SUB,que
 CON-SUB,qu'
 CON-SUB,quoique
 CON-SUB,si
+INT-STR,ah
+INT-STR,eh
+INT-STR,oh
+INT-STR,ha
+INT-ONO,aïe
+INT-ONO,ouille
+INT-ONO,acthoum
+INT-EMP,bon
+INT-EMP,bravo
+INT-EMP,bonjour
+INT-EMP,ciao
+INT-EMP,bye bye
+INT-EMP,go
+INT-EMP,ok

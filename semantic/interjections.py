@@ -18,14 +18,17 @@ class Interjection(Meaning, abc.ABC):
 
 @dataclasses.dataclass(frozen=True)
 class InterjectionStrictSensu(Interjection):
-    pass
+    def __str__(self) -> str:
+        return "INT-STR"
 
 
 @dataclasses.dataclass(frozen=True)
 class InterjectionOnomatopoeic(Interjection):
-    pass
+    def __str__(self) -> str:
+        return "INT-ONO"
 
 
 @dataclasses.dataclass(frozen=True)
 class InterjectionBorrowed(Interjection):
-    pass
+    def __str__(self) -> str:
+        return "INT-EMP"

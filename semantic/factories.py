@@ -6,6 +6,7 @@ from .adverbs import *
 from .articles import *
 from .conjunctions import *
 from .entities import *
+from .interjections import *
 from .nouns import *
 from .prepositions import *
 from .pronouns import *
@@ -148,6 +149,12 @@ def meaning(code: str) -> Meaning:
         return ConjunctionCoordination()
     elif code == "CON-SUB":
         return ConjunctionSubordination()
+    elif code == "INT-STR":
+        return InterjectionStrictSensu()
+    elif code == "INT-ONO":
+        return InterjectionOnomatopoeic()
+    elif code == "INT-EMP":
+        return InterjectionBorrowed()
     elif code.startswith("PRO-REF-"):
         cls = PronounReflexive
         m = _PATTERNS[cls].match(code)
